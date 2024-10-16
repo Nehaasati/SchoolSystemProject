@@ -1,6 +1,9 @@
-public class Main {
-    public static void main(String[] args) {
+import java.util.Scanner;
 
-        System.out.println("Hello world!");
+public class Main {
+    public static  void main(String[] args) {
+        Scanner sc =new Scanner(System.in);
+        Student st = new Student();
+
     }
 }
