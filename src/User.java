@@ -9,7 +9,11 @@ public abstract class User {
         this.password = password;
     }
 
-    public abstract boolean login(String username, String password);
+    //public abstract boolean login(String username, String password);
+    public boolean login(String username, String password) {
+        return this.username.equals(username) && this.password.equals(password);
+    }
+
 
     public abstract void menu();
 
@@ -29,6 +33,7 @@ public abstract class User {
     protected void changePassword(String newPassword) {
         this.password = newPassword;
     }
+
 
 }
 

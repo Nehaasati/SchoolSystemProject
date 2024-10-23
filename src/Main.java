@@ -5,8 +5,16 @@ public class Main {
         Scanner sc =new Scanner(System.in);
 
         Admin initialAdmin = new Admin("admin", "admin123");
-
+        Student intialStudent = new Student("Ayumi","Ayumi123");
+        Teacher intialTeacher =new Teacher("nils","nils123");
         Admin.getUsersList().add(initialAdmin);
+
+
+        // Add some initial users (Students and Teachers)
+        //initialAdmin.addUser(new Student("student1", "pass1"));
+        //initialAdmin.addUser(new Teacher("teacher1", "pass2"));
+
+        System.out.println("Welcome to the Student System!");
 
         Scanner scanner = new Scanner(System.in);
         boolean running = true;
@@ -20,8 +28,8 @@ public class Main {
             // Find the user by username
             User loggedInUser = null;
             for (User user : Admin.getUsersList()) {
-                if (user.username.equals(username)) {
-                    loggedInUser = user;
+                if (user.getUsername().equals(username)) {
+                   loggedInUser = user;
                     break;
                 }
             }
@@ -30,7 +38,7 @@ public class Main {
                 // Successfully logged in
                 boolean loggedIn = true;
                 while (loggedIn) {
-                    loggedInUser.showMenu();
+                    loggedInUser.menu();
                     System.out.print("Choose an option: ");
                     int choice = scanner.nextInt();
 
@@ -74,16 +82,15 @@ public class Main {
                             break;
                         case 4:
                             if (loggedInUser instanceof Admin) {
-                                ((Admin) loggedInUser).viewAllUsers();
+                                ((Admin) loggedInUser).viewAll();
                             } else if (loggedInUser instanceof Student) {
-                                ((Student) loggedInUser).giveRating();
+                                ((Student) loggedInUser).getRating();
                             }
                             break;
                         case 5:
                             if (loggedInUser instanceof Admin) {
                                 System.out.print("Enter group name to create: ");
                                 String groupName = scanner.next();
-                                ((Admin) loggedInUser).divideUsersIntoGroups(groupName);
                             } else {
                                 loggedIn = false; // Log out for Students and Teachers
                             }

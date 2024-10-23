@@ -17,8 +17,8 @@ public class Admin extends User {
     public void menu() {
         System.out.println("admin menu");
         System.out.println("1. add user");
-        System.out.println("2.remove user");
-        System.out.println("3.change user");
+        System.out.println("2.change password user");
+        System.out.println("3.remove user");
         System.out.println("4.view all user");
         System.out.println("logout");
     }
@@ -68,8 +68,11 @@ public class Admin extends User {
         }
 
     }
+    public void logout(){
+        System.out.println("logout user");
 
-    public static List<User>getUsersList(){
+        }
+            public static List<User>getUsersList(){
         return usersList;
     }
 
